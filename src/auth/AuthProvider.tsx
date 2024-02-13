@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   createContext,
   useContext,
@@ -32,10 +31,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
 
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
       localStorage.setItem("token", token);
     } else {
-      delete axios.defaults.headers.common["Authorization"];
       localStorage.removeItem("token");
     }
   }, [token]);

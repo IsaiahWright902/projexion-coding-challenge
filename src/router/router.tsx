@@ -6,11 +6,16 @@ import {
 import { useAuth } from "../auth/AuthProvider";
 import { ProtectedRoute } from "./ProtectedRoute";
 import LoginPage from "../pages/Login/LoginPage";
+import HomePage from "../pages/Home/HomePage";
 
 export function Router() {
   const { token } = useAuth();
 
   const unauthenticatedRoutes: RouteObject[] = [
+    {
+      path: "/",
+      element: <ProtectedRoute />,
+    },
     {
       path: "/login",
       element: <LoginPage />,
@@ -24,7 +29,7 @@ export function Router() {
       children: [
         {
           path: "/home",
-          element: <>mock route</>,
+          element: <HomePage />,
         },
       ],
     },
@@ -32,10 +37,8 @@ export function Router() {
 
   const routes = createBrowserRouter([
     ...unauthenticatedRoutes,
-    ...(token ? authenticatedRoutes : []),
+    ...(token !== "unauthenticated" ? authenticatedRoutes : []),
   ]);
-
-  console.log(token);
 
   return <RouterProvider router={routes} />;
 }
