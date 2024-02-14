@@ -20,6 +20,19 @@ export const CONTENT_QUERIES = gql`
               structureDefinition {
                 title
               }
+              instructors {
+                name
+                id
+              }
+              image {
+                url
+                name
+                id
+              }
+              versioning {
+                draftVersion
+                releaseVersion
+              }
             }
           }
         }

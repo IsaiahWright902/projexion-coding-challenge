@@ -8,6 +8,20 @@ export type Node = {
   description: string;
   shortDescription: string;
   attachments: [];
+  hasBeenPublishedOnce: boolean;
+  instructors: Instructor[];
+  image: Image;
+};
+
+export type Instructor = {
+  name: string;
+  id: string;
+};
+
+export type Image = {
+  url: string;
+  name: string;
+  id: string;
 };
 
 export type StructureDefinition = {
@@ -21,4 +35,7 @@ export type ContentNodeDTO = {
   shortDescription: string;
   attachments: [];
   position: number;
+  hasBeenPublishedOnce: boolean;
+  instructors: Instructor[];
+  image: Image;
 };
