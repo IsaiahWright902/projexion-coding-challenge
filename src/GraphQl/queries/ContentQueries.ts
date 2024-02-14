@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const CONTENT_QUERIES = gql`
+export const CONTENT_NODE_QUERY = gql`
   query GetContentNodes {
     Admin {
       Tree {
