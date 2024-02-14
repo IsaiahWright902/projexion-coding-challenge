@@ -30,7 +30,7 @@ const themeOptions: ThemeOptions = {
       fontSize: "24px",
     },
     h5: {
-      fontSize: "20px",
+      fontSize: "18px",
       fontWeight: 600,
     },
     body1: {

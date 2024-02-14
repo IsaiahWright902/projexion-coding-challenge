@@ -11,13 +11,30 @@ export async function LogInUser(formData: LoginFormDTO) {
         input: {
           email: formData.username,
           password: formData.password,
+          clientMutationId: null,
+        },
+        loginInput2: {
+          email: formData.username,
+          password: formData.password,
         },
       },
     })
     .then(async (res) => {
-      if (res.data.Auth?.login?.token) {
-        localStorage.setItem("token", res.data.Auth?.login?.token);
-        localStorage.setItem("userName", res.data.Auth.login.accounts[0].name);
+      if (res.data.Auth?.loginJwt) {
+        localStorage.setItem(
+          "token",
+          res.data.Auth?.loginJwt?.loginResult?.jwtTokens?.accessToken
+        );
+        localStorage.setItem(
+          "refreshToken",
+          res.data.Auth?.loginJwt?.loginResult?.jwtTokens?.refreshToken
+        );
+
+        localStorage.setItem(
+          "userName",
+          res.data?.Auth?.login.accounts[0]?.name
+        );
+
         window.location.replace("/home");
       }
     })
