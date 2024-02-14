@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
-import TopDivider from "../Login/components/TopDivider";
-import { CONTENT_QUERIES } from "../../GraphQl/queries/ContentQueries";
+import TopDivider from "../../components/TopDivider/TopDivider";
+import { CONTENT_NODE_QUERY } from "../../GraphQl/queries/ContentQueries";
 import { useEffect, useState } from "react";
 import { Box, Stack } from "@mui/material";
 import { Edge, ContentNodeDTO } from "../../types/types";
@@ -81,7 +81,7 @@ export default function HomePage() {
 }
 
 function useContentNodes() {
-  const { loading, error, data } = useQuery(CONTENT_QUERIES);
+  const { loading, error, data } = useQuery(CONTENT_NODE_QUERY);
 
   const [contentNodes, setContentNodes] = useState<ContentNodeDTO[]>([]);
 

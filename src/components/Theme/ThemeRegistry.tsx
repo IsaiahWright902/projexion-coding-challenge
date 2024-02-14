@@ -61,13 +61,7 @@ export default function ThemeRegistry({
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box
-        width="100%"
-        minHeight="100vh"
-        sx={{
-          backgroundColor: `tsipGrey.light`,
-        }}
-      >
+      <Box width="100%" minHeight="100vh">
         <Container
           sx={{
             padding: isMobile ? "16px " : "64px 128px",

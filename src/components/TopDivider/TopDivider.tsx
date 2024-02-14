@@ -1,5 +1,5 @@
 import { Avatar, Divider, Stack, Typography } from "@mui/material";
-import LogOutButton from "./LogOutButton";
+import LogOutButton from "../../pages/Login/components/LogOutButton";
 
 export default function TopDivider() {
   const userName = localStorage.getItem("userName");
